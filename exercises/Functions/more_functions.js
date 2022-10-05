@@ -20,11 +20,12 @@ addNumbers(2, 2);
 addNumbers(700, -22);
 
 function displayReceipt(totalDue, amountPaid) {
-  console.log(`Total Due: ${totalDue}
-    Amount Paid: ${amountPaid}
-    Change Due: ${amountPaid - totalDue}`);
+  console.log(`Total Due: $${totalDue}
+    Amount Paid: $${amountPaid}
+    Change Due: $${Math.abs(amountPaid - totalDue)}`);
   
   if (amountPaid < totalDue) {
-    console.log(`You owe ${amountPaid - totalDue}`)
+    console.log(`You owe $${Math.abs(amountPaid - totalDue)}`)
   }
 }
+displayReceipt(26, 23); 

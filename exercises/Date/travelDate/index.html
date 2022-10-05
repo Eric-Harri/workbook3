@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Travel Date</title>
+    </head>
+
+    <body>
+        <label for="travelDateField">Travel Date:</label>
+        <input type="date" id="travelDateField">
+        <input type="button" value="submit" id="dateBtn" onclick="onSubmitBtnClicked();">
+        <p id="message"></p>
+
+        <script>
+            function onSubmitBtnClicked() {
+                const inputElement = document.getElementById("travelDateField");
+
+                let travelDate = new Date(inputElement.value + "T00:00");
+                console.log(travelDate);
+
+                let today = new Date(); 
+                console.log(today);
+
+                let milliSecondsPerDay = 1000 * 60 * 60 * 24;
+                let elapsedMilliSeconds = today.getTime() - travelDate.getTime();
+                let dayDiff = elapsedMilliSeconds / milliSecondsPerDay;
+                let numberofdays = Math.abs(Math.round(dayDiff));
+                console.log(numberofdays);
+
+                const paragraphElement = document.getElementById('message');
+                paragraphElement.innerText = `Your trip is in ${numberofdays} days.`;  
+            }   
+
+        </script>
+    </body>
+
+</html>
